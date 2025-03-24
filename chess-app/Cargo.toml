@@ -1,0 +1,8 @@
+[package]
+name = "chess-app"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chess-core = { path = "../chess-core" }
+eframe = "0.31.1"
