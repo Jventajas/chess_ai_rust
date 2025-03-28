@@ -1,23 +1,12 @@
-use chess_core::pieces::piece::Piece;
+use chess_core::game::bitboard::Bitboard;
 
 fn main() {
-    let pieces = vec![
-        Piece::WhitePawn,
-        Piece::WhiteRook,
-        Piece::WhiteKnight,
-        Piece::WhiteBishop,
-        Piece::WhiteQueen,
-        Piece::WhiteKing,
-        Piece::BlackPawn,
-        Piece::BlackRook,
-        Piece::BlackKnight,
-        Piece::BlackBishop,
-        Piece::BlackQueen,
-        Piece::BlackKing,
-    ];
+    let empty_board = Bitboard::new();
+    println!("Empty Bitboard: {}", empty_board);
 
-    for piece in &pieces {
-        print!("{} ", piece);
-    }
-    println!();
+    let full_board = Bitboard::from(u64::MAX);
+    println!("Full Bitboard: {}", full_board);
+
+    let pattern_board = Bitboard::from(0b10001000);
+    println!("Pattern Bitboard: {}", pattern_board);
 }
