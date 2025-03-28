@@ -1,5 +1,6 @@
 use std::fmt::Display;
 
+#[derive(Debug, Clone, Copy)]
 pub struct Bitboard {
     pub data: u64,
 }
@@ -45,7 +46,6 @@ impl Display for Bitboard {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 mod tests {
