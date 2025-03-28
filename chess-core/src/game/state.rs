@@ -1,5 +1,5 @@
 use std::fmt::Display;
-use crate::game::bitboard::Bitboard;
+use crate::game::bitboard::*;
 
 pub struct GameState {
     pub board: [Bitboard; 12],
@@ -11,6 +11,28 @@ impl GameState {
     pub fn new() -> Self {
         Self {
             board: [Bitboard::new(); 12],
+            turn_white: true,
+        }
+    }
+
+    pub fn new_game() -> Self {
+        let board = [
+            Bitboard::from(WHITE_PAWNS),
+            Bitboard::from(BLACK_PAWNS),
+            Bitboard::from(WHITE_ROOKS),
+            Bitboard::from(BLACK_ROOKS),
+            Bitboard::from(WHITE_KNIGHTS),
+            Bitboard::from(BLACK_KNIGHTS),
+            Bitboard::from(WHITE_BISHOPS),
+            Bitboard::from(BLACK_BISHOPS),
+            Bitboard::from(WHITE_QUEEN),
+            Bitboard::from(BLACK_QUEEN),
+            Bitboard::from(WHITE_KING),
+            Bitboard::from(BLACK_KING),
+        ];
+
+        Self {
+            board,
             turn_white: true,
         }
     }
@@ -43,6 +65,21 @@ mod tests {
     fn test_gamestate_initial_turn_white() {
         let game_state = GameState::new();
         assert!(game_state.turn_white, "It should be white's turn after game state initialization");
+    }
+
+
+    #[test]
+    fn test_gamestate_new_game_display() {
+        let game_state = GameState::new_game();
+        let display_output = format!("{}", game_state);
+        for (i, bitboard) in game_state.board.iter().enumerate() {
+            let expected_line = format!("{}", bitboard);
+            assert!(
+                display_output.contains(&expected_line),
+                "Bitboard at position {} was not displayed correctly in the output",
+                i
+            );
+        }
     }
 }
 

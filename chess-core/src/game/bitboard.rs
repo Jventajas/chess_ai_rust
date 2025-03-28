@@ -1,5 +1,20 @@
 use std::fmt::Display;
 
+
+pub const WHITE_PAWNS: u64 = 65280;
+pub const BLACK_PAWNS: u64 = 71776119061217280;
+pub const WHITE_KNIGHTS: u64 = 66;
+pub const BLACK_KNIGHTS: u64 = 4755801206503243776;
+pub const WHITE_BISHOPS: u64 = 36;
+pub const BLACK_BISHOPS: u64 = 2594073385365405696;
+pub const WHITE_ROOKS: u64 = 129;
+pub const BLACK_ROOKS: u64 = 9295429630892703744;
+pub const WHITE_QUEEN: u64 = 8;
+pub const BLACK_QUEEN: u64 = 576460752303423488;
+pub const WHITE_KING: u64 = 16;
+pub const BLACK_KING: u64 = 1152921504606846976;
+
+
 #[derive(Debug, Clone, Copy)]
 pub struct Bitboard {
     pub data: u64,
