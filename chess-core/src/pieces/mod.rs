@@ -1,1 +1,1 @@
-mod piece;
+pub mod piece;
